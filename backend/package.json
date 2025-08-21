@@ -5,8 +5,7 @@
   "main": "production.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon local.js",
-    "start": "node production.js"
+    "dev": "nodemon local.js"
   },
   "keywords": [],
   "author": "",
