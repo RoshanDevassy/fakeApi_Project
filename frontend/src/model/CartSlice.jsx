@@ -3,12 +3,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { createSlice } from "@reduxjs/toolkit";
 
+const domain = import.meta.env.VITE_EXPRESS_API;
+
 export const getCartProducts = createAsyncThunk(
   "api/get/fakeapi/cartproducts",
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:6600/fakeapi/cartitems"
+        `${domain}/fakeapi/cartitems`
       );
       return response.data;
     } catch (error) {
@@ -22,7 +24,7 @@ export const postCartProducts = createAsyncThunk(
   async (obj) => {
     try {
       const response = await axios.post(
-        "http://localhost:6600/fakeapi/cartitems",
+        `${domain}/fakeapi/cartitems`,
         obj
       );
 
@@ -39,7 +41,7 @@ export const deleteCartProducts = createAsyncThunk(
     console.info(" received id", obj);
     try {
       const response = await axios.delete(
-        `http://localhost:6600/fakeapi/cartitems/${obj}`
+        `${domain}/fakeapi/cartitems/${obj}`
       );
 
       return response.data;

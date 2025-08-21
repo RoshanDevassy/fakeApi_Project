@@ -2,12 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+const domain =  import.meta.env.VITE_EXPRESS_API
+
 export const getFakeApiProducts = createAsyncThunk(
   "api/get/fakeapi/products",
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:6600/fakeapi/products"
+        `${domain}/fakeapi/products`
       );
       return await response.data;
     } catch (error) {
@@ -21,7 +23,7 @@ export const addToFakeApiProducts = createAsyncThunk(
   async (obj) => {
     try {
       const response = await axios.post(
-        "http://localhost:6600/fakeapi/products",
+        `${domain}/fakeapi/products`,
         obj,
         {
           headers: {
