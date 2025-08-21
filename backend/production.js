@@ -92,7 +92,7 @@ try {
     res.json({ error: `Error in FakeApi Cart Items : ${error.message}` })
 }
 
-await client.db("fakeapi").command({ ping: 1 });
+
 console.info("MongoDB Connected")
 
 
