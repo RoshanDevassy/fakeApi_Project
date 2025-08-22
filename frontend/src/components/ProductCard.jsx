@@ -27,7 +27,7 @@ const ProductCard = () => {
                 src={
                   Boolean(obj?.images?.[0])
                     ? obj.images[0]
-                    : `http://localhost:6600/uploads/${obj.imageSrc.filename}`
+                    : `${import.meta.env.VITE_EXPRESS_API}/uploads/${obj.imageSrc.filename}`
                 }
                 alt={obj.title}
                 className="w-full h-[280px] object-cover bg-slate-500"
