@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 
 const domain =  import.meta.env.VITE_EXPRESS_API
 
+console.info("Express API :",domain)
+
 export const getFakeApiProducts = createAsyncThunk(
   "api/get/fakeapi/products",
   async () => {
