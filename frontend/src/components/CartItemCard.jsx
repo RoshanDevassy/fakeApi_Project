@@ -15,7 +15,7 @@ const CartItemCard = () => {
               <img
                 src={
                   obj?.images?.[0] ||
-                  `http://localhost:6600/uploads/${obj?.imageSrc.filename}`
+                  `${import.meta.env.VITE_EXPRESS_API}/uploads/${obj?.imageSrc.filename}`
                 }
                 alt={obj.title}
                 className="w-full h-[280px] bg-slate-500"
