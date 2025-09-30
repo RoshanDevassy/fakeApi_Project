@@ -12,14 +12,16 @@ const ProductsPage = () => {
     dispatch(getCartProducts());
   }, []);
 
-  useLayoutEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
-      <h1 className="font-bold text-2xl text-center py-5">Products</h1>
-      <ProductCard />
+      <div className="min-w-[320px]">
+        <h1 className="font-bold text-2xl text-center py-5 ">Products</h1>
+        <ProductCard />
+      </div>
     </>
   );
 };

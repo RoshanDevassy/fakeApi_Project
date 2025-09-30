@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <header className="h-20 sticky top-0 dark:bg-black dark:text-white bg-white text-black">
-        <nav className=" flex justify-center items-center gap-10 *:font-bold *:text-2xl h-full">
+      <header className="sticky top-0 py-5 px-2 min-w-[320px] dark:bg-black dark:text-white bg-white text-black">
+        <nav className="flex justify-center flex-wrap items-center gap-10 *:font-bold *:text-2xl h-full">
           <Link
             to={"/products"}
             className={`${

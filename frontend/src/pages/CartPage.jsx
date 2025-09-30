@@ -16,7 +16,7 @@ const CartPage = () => {
 
   return (
     <>
-      <div className=" transition-all ">
+      <div className=" transition-all min-w-[320px]">
         <h1 className="font-bold text-2xl text-center py-5">Cart Items</h1>
         <CartItemCard />
       </div>

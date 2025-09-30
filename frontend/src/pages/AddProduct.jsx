@@ -16,7 +16,7 @@ export default function AddProduct() {
 
   return (
     <>
-      <section>
+      <section className="min-w-[320px]">
         <h1 className="text-center">Add Product</h1>
         <form
           onSubmit={handleFormSubmit}

@@ -9,9 +9,7 @@ export const getCartProducts = createAsyncThunk(
   "api/get/fakeapi/cartproducts",
   async () => {
     try {
-      const response = await axios.get(
-        `${domain}/fakeapi/cartitems`
-      );
+      const response = await axios.get(`${domain}/fakeapi/cartitems`);
       return response.data;
     } catch (error) {
       throw new Error("Error Fetching Cart Products :", error);
@@ -23,10 +21,7 @@ export const postCartProducts = createAsyncThunk(
   "api/post/fakeapi/cartproducts",
   async (obj) => {
     try {
-      const response = await axios.post(
-        `${domain}/fakeapi/cartitems`,
-        obj
-      );
+      const response = await axios.post(`${domain}/fakeapi/cartitems`, obj);
 
       return response.data;
     } catch (error) {
@@ -40,9 +35,7 @@ export const deleteCartProducts = createAsyncThunk(
   async (obj) => {
     console.info(" received id", obj);
     try {
-      const response = await axios.delete(
-        `${domain}/fakeapi/cartitems/${obj}`
-      );
+      const response = await axios.delete(`${domain}/fakeapi/cartitems/${obj}`);
 
       return response.data;
     } catch (error) {
@@ -55,15 +48,25 @@ const CartSlice = createSlice({
   name: "CartSlice",
   initialState: {
     cartProducts: [],
+    cartLoading: true,
+    cartErrors: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getCartProducts.fulfilled, (state, action) => {
         state.cartProducts = action.payload;
+        state.cartLoading = false;
+        state.cartErrors = false;
+      })
+      .addCase(getCartProducts.pending, (state, action) => {
+        state.cartLoading = true;
+        state.cartErrors = false;
       })
       .addCase(getCartProducts.rejected, (state, action) => {
         toast.error(action.error.message);
+        state.cartLoading = false;
+        state.cartErrors = action.error.message;
       })
 
       .addCase(postCartProducts.fulfilled, (state, action) => {
